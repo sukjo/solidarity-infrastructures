@@ -1,12 +1,15 @@
 <?php
+// Specify the directory and filename where you want to save the file
+$directory = '../../../media/twelvelemon/JOJOJO/forgottens';
+$filename = $directory . 'forgotten_at_' . time() . '.txt';
+
 $content = $_POST['content']; // Get the content from the POST request
 
-// Specify the directory and filename where you want to save the file
-$filename = '../mnt/usb' . uniqid() . '.txt';
-
 // Write the content to the file
-file_put_contents($filename, $content);
+if (file_put_contents($file, $content) !== false) {
+    echo "file written successfully";
+} else {
+    echo "error writing to file";
+}
 
-// Respond to the client (optional)
-echo 'File saved successfully!';
 ?>

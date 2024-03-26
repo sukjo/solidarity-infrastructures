@@ -10,10 +10,13 @@
     <textarea id="dropoff" rows="10" cols="50"></textarea>
     <button onclick="storeForgotten()">forget it</button>
 
+    <!-- <div>Current PHP user: <?php echo exec('whoami'); ?></div> -->
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             function storeForgotten() {
-                let content = $("#content").value;
+                let content = $("#dropoff").val();
+
                 $.ajax({
                     type: 'POST',
                     url: 'forget_it.php',
