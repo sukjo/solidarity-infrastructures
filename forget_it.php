@@ -1,15 +1,23 @@
 <?php
+date_default_timezone_set("America/New_York");
+
 // Specify the directory and filename where you want to save the file
-$directory = '../../../media/twelvelemon/JOJOJO/forgottens';
-$filename = $directory . 'forgotten_at_' . time() . '.txt';
+// $directory = '../../../mnt/usb/forgottens/';
+$directory = 'forgottens/';
 
-$content = $_POST['content']; // Get the content from the POST request
+$filename = $directory . 'forgotten_at_' . date("Y.m.d_H-i") . '.txt';
 
-// Write the content to the file
-if (file_put_contents($file, $content) !== false) {
-    echo "file written successfully";
+if (isset($_POST['content'])) {
+    $content = $_POST['content']; // Get the content from the POST request
+    
+    // Write the content to the file
+    if (file_put_contents($filename, $content) !== false) {
+        echo "i got you";
+    } else {
+        echo "oops it didn't work";
+    }
 } else {
-    echo "error writing to file";
+    echo "content not received via POST";
 }
 
 ?>

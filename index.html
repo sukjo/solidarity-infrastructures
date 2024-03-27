@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❉ ❉ ❉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0rem;
+            box-sizing: border-box;
+        }
+        :root {
+            font-size: 14px;
+
+        }
+        #world {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 60vw;
+            margin: 1rem auto;
+        }
+        #world > * {
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-family: "Gamja Flower", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1rem;
+        }
+        #dropoff {
+            margin: 4rem 0;
+            padding: 1.5rem;
+            font-family: "Gamja Flower", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 3rem;
+
+            border: none;
+            box-shadow: 
+                0 0 20px 4px #0ff,
+                0 0 40px 8px #f0f;
+            border-radius: 60px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            font-family: "Gamja Flower", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.5rem;
+            background-color: transparent;
+            width: fit-content;
+            border: none;
+            
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        button:hover::before {
+            content: '\005B';
+        }
+        button:hover::after {
+            content: '\005D';
+        }
+        footer {
+            /* position: absolute; */
+            margin: 1rem;
+            padding: 1rem;
+            bottom: 0px;
+            right: 0px;
+            text-align: right;
+
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="world">
+    <h1>What do you need to part with?</h1>
+    <p>"Now where did I leave that...?" is a common thought. But do you ever remember where you stored something, but not the thing you stored?</p>
+    <p>I find that writing has this effect sometimes. There are many "shoulds" that await me in my planner, but I cannot recall them individually.</p>
+    <p>This is a space to write down what no longer serves you in order to unfasten it from your memory.</p>
+    <p>You may leave behind a memory, a habit, a piece of information you wish you never heard, or anything of the sort.</p>
+    <p>Once you submit the form below, your forgotten will be stored in a text file, which in turn will be stored in a USB that I frequently wear on a beaded string around my neck.</p>
+    <p>I'll carry this forgotten for you until it hopefully becomes just that.</p>
+    <textarea id="dropoff" rows="5" cols="50"></textarea>
+    <button onclick="storeForgotten()">forget it</button>
+    <!-- <div>Current PHP user: <?php echo exec('whoami'); ?></div> -->
+</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            function storeForgotten() {
+                let content = $("#dropoff").val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'forget_it.php',
+                    data: {content: content},
+                    success: function(response) {
+                        $("#dropoff").val('');
+                        alert(response); 
+                    }
+                });
+            }
+        </script>
+</body>
+<footer>
+    <p>This site is typeset in Gamja Flower by YoonDesign Inc and created by Jo Suk in 2024.</p>
+</footer>
+</html>
