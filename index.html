@@ -1,126 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❉ ❉ ❉</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hypomnema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Gamja+Flower&family=Nanum+Myeongjo:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            padding: 0;
-            margin: 0rem;
-            box-sizing: border-box;
-        }
-        :root {
-            font-size: 14px;
+      * {
+        padding: 0;
+        margin: 0rem;
+        box-sizing: border-box;
+      }
+      :root {
+        font-size: 14px;
+        --blue: #7c9fe7;
+        --gold: #fae090;
+        --gray: #c9cfd2;
+      }
+      body {
+        background-color: var(--gray);
+      }
+      #world {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 60vw;
+        margin: 1rem auto;
+      }
+      #world > * {
+        margin-bottom: 1rem;
+      }
+      h1 {
+        /* font-family: "Gamja Flower", sans-serif;
+        font-weight: 400;
+        font-style: normal; */
+        font-family: "Ballet", cursive;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3rem;
+        text-align: center;
+      }
+      p {
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1rem;
+      }
+      span.preview {
+        font-family: inherit;
+        font-weight: 800;
+      }
+      #dropoff {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1rem;
+        z-index: 0;
 
-        }
-        #world {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 60vw;
-            margin: 1rem auto;
-        }
-        #world > * {
-            margin-bottom: 1rem;
-        }
-        h1 {
-            font-family: "Gamja Flower", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1.2rem;
-            text-align: center;
-        }
+        border-top: 4px ridge #aaaaaa;
+        border-right: 4px ridge #6d6d6d;
+        border-bottom: 4px ridge #a2a2a2;
+        border-left: 4px ridge #dadada;
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        font-family: "Ballet", cursive;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-size: 1.5rem;
+        background-color: transparent;
+        width: fit-content;
+        border: none;
+        text-align: center;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      button:hover::before {
+        content: "\005B";
+      }
+      button:hover::after {
+        content: "\005D";
+      }
+      .palette {
+        position: fixed;
+        display: block;
+        z-index: -20;
+      }
+      .palette > * {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50px;
+      }
+      footer {
+        /* position: absolute; */
+        margin: 1rem;
+        padding: 1rem;
+        bottom: 0px;
+        right: 0px;
+        text-align: center;
+
         p {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1rem;
+          font-size: 0.8rem;
         }
-        #dropoff {
-            margin: 4rem 0;
-            padding: 1.5rem;
-            font-family: "Gamja Flower", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 3rem;
-
-            border: none;
-            box-shadow: 
-                0 0 20px 4px #0ff,
-                0 0 40px 8px #f0f;
-            border-radius: 60px;
-        }
-        button {
-            display: block;
-            margin: 0 auto;
-            font-family: "Gamja Flower", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1.5rem;
-            background-color: transparent;
-            width: fit-content;
-            border: none;
-            
-        }
-        button:hover {
-            cursor: pointer;
-        }
-        button:hover::before {
-            content: '\005B';
-        }
-        button:hover::after {
-            content: '\005D';
-        }
-        footer {
-            /* position: absolute; */
-            margin: 1rem;
-            padding: 1rem;
-            bottom: 0px;
-            right: 0px;
-            text-align: right;
-
-            p {
-                font-size: 0.8rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div
+      id="klee"
+      style="
+        width: 50vw;
+        height: 80vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 2rem;
+        background-image: url('./assets/klee_forgetful_angel.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        background-color: var(--gray);
+        opacity: 0.1;
+        z-index: -100;
+      "
+    ></div>
     <div id="world">
-    <h1>What do you need to part with?</h1>
-    <p>"Now where did I leave that...?" is a common thought. But do you ever remember where you stored something, but not the thing you stored?</p>
-    <p>I find that writing has this effect sometimes. There are many "shoulds" that await me in my planner, but I cannot recall them individually.</p>
-    <p>This is a space to write down what no longer serves you in order to unfasten it from your memory.</p>
-    <p>You may leave behind a memory, a habit, a piece of information you wish you never heard, or anything of the sort.</p>
-    <p>Once you submit the form below, your forgotten will be stored in a text file, which in turn will be stored in a USB that I frequently wear on a beaded string around my neck.</p>
-    <p>I'll carry this forgotten for you until it hopefully becomes just that.</p>
-    <textarea id="dropoff" rows="5" cols="50"></textarea>
-    <button onclick="storeForgotten()">forget it</button>
-    <!-- <div>Current PHP user: <?php echo exec('whoami'); ?></div> -->
-</div>
+      <h1>What do you need to part with?</h1>
+      <p>
+        "Now where did I leave that...?" is a common thought. A rarer phenomenon
+        is remembering where you stored something, but not the thing you stored.
+      </p>
+      <p>
+        There are many "shoulds" that await me in my planner but I cannot recall
+        them individually. The junk drawer is another example: a reliable
+        gestalt for the knickknacks we deem unworthy of labeling. I imagine the
+        notes app serves a similar purpose for many people.
+      </p>
+      <p>
+        Writing can have this effect, sometimes. When we bind our thoughts to a
+        physical form, we can carry on safely without the details, with the
+        assurance that we can find them in tangible place if need ever be.
+      </p>
+      <p>
+        This is a space to write down what no longer serves you in order to free
+        it from your memory.
+      </p>
+      <p>
+        You may leave behind a memory, a habit, a piece of information you wish
+        you never heard, or anything of the sort.
+      </p>
+      <p>
+        Once you submit the form below, your forgotten will be stored in a text
+        file, which in turn will be stored in a
+        <span class="preview">USB</span> that I frequently wear around my neck.
+      </p>
+      <p>
+        I'll carry this forgotten for you until it hopefully becomes just that.
+      </p>
+      <textarea id="dropoff" rows="5" cols="50"></textarea>
+      <button onclick="storeForgotten()">forget it</button>
+      <!-- <div>Current PHP user: <?php echo exec('whoami'); ?></div> -->
+    </div>
+    <img
+      class="previewImage"
+      src="./assets/necklace-cutout.png"
+      style="
+        display: none;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: auto;
+        height: 50vh;
+        z-index: -5;
+      "
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function storeForgotten() {
+        let content = $("#dropoff").val();
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script>
-            function storeForgotten() {
-                let content = $("#dropoff").val();
+        $.ajax({
+          type: "POST",
+          url: "forget_it.php",
+          data: { content: content },
+          success: function (response) {
+            $("#dropoff").val("");
+            alert(response);
+          },
+        });
+      }
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'forget_it.php',
-                    data: {content: content},
-                    success: function(response) {
-                        $("#dropoff").val('');
-                        alert(response); 
-                    }
-                });
-            }
-        </script>
-</body>
-<footer>
-    <p>This site is typeset in Gamja Flower by YoonDesign Inc and created by Jo Suk in 2024.</p>
-</footer>
+      //   for (let i = 0; i < 4; i++) {
+      //     let randomTop =
+      //       Math.floor(Math.random() * ($(window).height() - 200)) + "px";
+      //     let randomLeft =
+      //       Math.floor(Math.random() * ($(window).width() - 200)) + "px";
+
+      //     // Randomly choose the order of colors
+      //     let colors = ["gold", "blue", "blue", "blue", "gold"];
+      //     let randomColors = colors.slice(); // Copy array
+      //     for (let j = randomColors.length - 1; j > 0; j--) {
+      //       let randIndex = Math.floor(Math.random() * (j + 1));
+      //       [randomColors[j], randomColors[randIndex]] = [
+      //         randomColors[randIndex],
+      //         randomColors[j],
+      //       ]; // Swap
+      //     }
+
+      //     let beads = `<div class="palette" style="top: ${randomTop}; left: ${randomLeft};" aria-hidden="true">`;
+      //     randomColors.forEach((color) => {
+      //       beads += `<div style="background-color: var(--${color}); box-shadow: 0 0 0.25rem 0.25rem var(--${color})"></div>`;
+      //     });
+      //     beads += `</div>`;
+
+      //     $("body").append(beads);
+      //   }
+
+      $(".preview").hover(
+        function () {
+          $(this).css("cursor", "crosshair");
+          $(".previewImage").css("display", "block");
+        },
+        function () {
+          $(this).css("cursor", "auto");
+          $(".previewImage").css("display", "none");
+        }
+      );
+    </script>
+  </body>
+  <footer>
+    <p>
+      This site is typeset in Nanum Myeongjo by Fontrix and Ballet, designed by
+      Maximiliano Sproviero and developed by Eduardo Tunni.
+    </p>
+    <p>Created by Jo Suk in 2024 for Solidarity Infrastructures.</p>
+  </footer>
 </html>
