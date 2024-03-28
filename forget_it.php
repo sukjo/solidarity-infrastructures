@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set("America/New_York");
 
-// Specify the directory and filename where you want to save the file
 // $directory = '../../../mnt/usb/forgottens/';
 $directory = 'forgottens/';
 

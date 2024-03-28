@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hypomnema</title>
+    <title>let me forget that for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,11 +25,14 @@
       body {
         background-color: var(--gray);
       }
+      #world, footer {
+        width: 60vw;
+        margin: 1rem auto;
+    }
       #world {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 60vw;
         margin: 1rem auto;
       }
       #world > * {
@@ -101,9 +104,25 @@
         height: 0.75rem;
         border-radius: 50px;
       }
+      #klee {
+        width: 50vw;
+        height: 80vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 2rem;
+        background-image: url('./assets/klee_forgetful_angel.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-blend-mode: multiply;
+        background-color: var(--gray);
+        opacity: 0.2;
+        z-index: -100;
+      }
       footer {
         /* position: absolute; */
-        margin: 1rem;
+        /* margin: 1rem; */
         padding: 1rem;
         bottom: 0px;
         right: 0px;
@@ -118,22 +137,6 @@
   <body>
     <div
       id="klee"
-      style="
-        width: 50vw;
-        height: 80vh;
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 2rem;
-        background-image: url('./assets/klee_forgetful_angel.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        background-color: var(--gray);
-        opacity: 0.1;
-        z-index: -100;
-      "
     ></div>
     <div id="world">
       <h1>What do you need to part with?</h1>
@@ -242,9 +245,14 @@
     </script>
   </body>
   <footer>
+    <p style="font-size:1rem">“To be interested in the changing seasons… is a happier state of mind than to be hopelessly in love with spring”</p>
+    <p style="font-size:1rem">— George Santayana, 1905</p>
     <p>
       This site is typeset in Nanum Myeongjo by Fontrix and Ballet, designed by
-      Maximiliano Sproviero and developed by Eduardo Tunni.
+      Maximiliano Sproviero and developed by Eduardo Tunni. 
+    </p>
+    <p>
+      The artwork in the background is Paul Klee's Forgetful Angel (1939).
     </p>
     <p>Created by Jo Suk in 2024 for Solidarity Infrastructures.</p>
   </footer>
